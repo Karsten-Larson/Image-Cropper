@@ -1,0 +1,21 @@
+[build-system]
+requires = ["maturin>=1.9,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "image-cropper"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+    "typer[all]",
+]
+dynamic = ["version"]
+[project.scripts]
+image_cropper = "image_cropper.main:app"
+[tool.maturin]
+features = ["pyo3/extension-module"]
+sdist-include = ["README.md", "LICENSE.md"]
